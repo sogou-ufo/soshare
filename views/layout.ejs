@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="utf-8" />
+        <title>{{=(locals.title ? locals.title + ' - ' : '' ) + 'soShare - 生命在于分享！'}}</title>
+        <link rel="stylesheet" href="/share/css/main.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="http://d.123.sogou.com/jsn/lib/ufo.js"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="/share/images/favicon.ico" />
+    </head>
+    <body>
+        <div class="custom-header">
+            
+        </div>
+        <header>
+            <div class="h-inner">
+                <div class="banner">
+                    <ul class="user">
+                        <li><strong>{{=common.uname}}</strong></li>
+                        <li>
+                            <a href="/share/tag/help" >help</a>
+                        </li>
+                        <!--
+                        <li>
+                            <a href="#" id="Logout">logout</a>
+                        </li>
+                        -->
+                    </ul>
+                </div> 
+                <h1><a href="/share"><img src="/share/images/logo.png" alt="soShare"/></a></h1>
+                <div class="search">
+                    <form method="get" id="" action="/share/search">
+                        {{ if( locals.type == 'tag' ){ }}
+                        <input type="text" name="q" value="[{{=(locals.tag && locals.tag.name || '')}}]" placeholder="[javascript]"  autocomplete="off" />
+                        {{ }else{ }}
+                        <input type="text" name="q" value="{{=(locals.query || '')}}" placeholder="[javascript]"  autocomplete="off" />
+                        {{ } }}
+                        
+                    </form>
+                </div>
+                <a href="/share/post/new" class="new-post-btn">新增分享</a>
+            </div>
+        </header>
+        <div class="main">
+            {{- body }}
+        </div>
+        <div class="notice" style="display:none;" id="Notice">
+            
+        </div>
+        <footer>
+            <div class="foot-inner">
+                <img src="/share/images/nodejs.png" class="nodejs" alt="nodejs" />
+                <img src="/share/images/mongodb.png" class="mongodb" alt="mongodb" />
+                <ul class="guide">
+                    <li>
+                        <a href="/share/html/about.html">关于</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href="/share/html/addons.html">插件</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a href="/share/html/about.html">意见反馈</a>
+                    </li>
+                </ul>
+                <p>&copy;2012 Sogou share</p>
+            </div>
+        </footer>
+    </body>
+    <script type="text/javascript" src="/share/js/main.js"></script>
+</html>

@@ -1,0 +1,124 @@
+<div class="two-col">
+     <div class="l-col">
+         
+         <p class="page-title">
+             {{ if( ptype=='edit'){ }}
+             编辑内容
+             {{ }else{ }}
+             分享新的内容！
+             {{ } }}
+         </p>
+
+         <form class="new-post" method="post" id="NewPost">
+             {{ if( ptype=='edit'){ }}
+             <input type="hidden" name="id" value="{{=id}}" />
+             {{ } }}
+             <p>
+                 <label for="title">标题：</label>
+                 <input id="title" type="text" name="title" autocomplete="off" value="{{=(locals.title ||'')}}"/>
+             </p>
+             <p>
+                 <label for="tag">Tag：</label>
+                 <input id="tag" type="text" name="tag" autocomplete="off" placeholder="一个至五个Tag,空格隔开" value="{{=(locals.tag && locals.tag.join(' ') ||'')}}"/>
+             </p>
+             <p class="v-top">
+                 <label for="article">正文：</label>
+                 <textarea id="article" name="article">{{=(locals.article||'')}}</textarea>
+             </p>
+             <p class="s-line">
+                 <button type="submit" class="submit">提交</button>
+                 <button type="button" class="cancel">取消</button>
+             </p>
+         </form>
+
+     </div>
+
+     <div class="r-col">
+         <ul class="edit-notice">
+             <li >
+                 <strong>标题</strong>请用尽量简洁的语句表达全文主题
+             </li>
+             <li>
+                 <strong>Tag</strong>是soshare的灵魂，请用尽量精确的词语描述文章的主题，不超过五个
+             </li>
+             <li>
+                 <h6><strong>正文</strong>使用<a href="/share/post/60015">markdown语法</a>，部分常用语法如下：</h6>
+                 <ul class="edit-markdown">
+                     <li>
+                         <p><strong>标题</strong></p>
+                         <p>#h1#</p>
+                         <p>##h2##</p>
+                         <p>###h3###</p>
+                         <p>依此类推</p>
+                     </li>
+                     <li>
+                         <p><strong>段落</strong></p>
+                         <p>连续两个回车换行形成一个段落</p>
+                     </li>
+                     <li>
+                         <p><strong>列表</strong></p>
+                         <p>*  内容   为无序列表</p>
+                         <p>1. 内容   为有序列表</p>
+                     </li>
+                     <li>
+                         <p><strong>链接</strong></p>
+                         <p>[链接文字](链接url)</p>
+                     </li>
+                     <li>
+                         <p><strong>图片</strong></p>
+                         <p>![图片alt](图片src)</p>
+                     </li>
+                     <li>
+                         <p><strong>代码块</strong></p>
+                         <p>缩进4个空格或者一个制表符。</p>
+                         <p>可以在第一行使用:::code-type来强制指定代码使用某种语言的语法高亮。</p>
+                     </li>
+                     <li>
+                         <p>遇到部分语法不支持的情况，如表格，可以直接使用html标签编写。</p>
+                     </li>
+                 </ul>
+             </li>
+         </ul>
+     </div>
+
+</div>
+
+
+<script type="text/javascript">
+    
+(function(){
+
+    var form = $('#NewPost');
+    form.submit(function(){
+        $.ajax({
+            type:"POST",
+            url:form.attr('action'),
+            data:form.serialize(),
+            success: function(res){
+                res = JSON.parse(res);
+                if( +res.result ){
+                    $('#Notice').html('提交失败')
+                        .fadeIn(function(){
+                            setTimeout(function(){
+                                $('#Notice').fadeOut();
+                            },1000);
+                        } );
+                }else{
+                    var id = res.id;
+                    $('#Notice')
+                        .html('提交成功')
+                        .fadeIn(function(){
+                            setTimeout(function(){
+                                location.href='/share/post/'+ id;
+                            },1000);
+                        });
+                }
+            }
+        });
+        return false;
+    });
+
+})();
+
+
+</script>

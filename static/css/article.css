@@ -1,0 +1,93 @@
+.share h1{
+    font-size:18px;
+    font-weight:700;
+    background:#eaeaea;
+    line-height:36px;
+    margin:10px 0;
+    padding-left:5px;
+    position:static;
+}
+
+.share h2{
+    font-size:16px;
+    font-weight:400;
+    background:#eaeaea;
+    line-height:30px;
+    margin:10px 0;
+    padding-left:5px;
+}
+
+.share h3{
+    font-size:16px;
+    font-weight:700;
+    padding-left:5px;
+    margin:10px 0 5px;
+}
+
+.share h4{
+    font-size:14px;
+    font-weight:700;
+    padding-left:5px;
+}
+
+.share h5{
+    font-size:14px;
+    font-weight:400;
+    padding-left:5px;
+}
+
+.share h6{
+    font-size:12px;
+    font-weight:700;
+    padding-left:5px;
+}
+
+
+
+.share p{
+    text-indent:2em;
+    margin-bottom:1em;
+}
+
+.share pre{
+    margin:5px 40px;
+    background:ghostWhite;
+    padding:3px 8px;
+    word-wrap: break-word; 
+    word-break: normal; 
+    font-size:12px;
+    overflow:auto;
+}
+
+.share p + pre{
+    margin-top:-0.6em;
+    margin-bottom:1em;
+}
+
+.share pre,.share code{
+    line-height:130%;
+}
+
+.share ol>li{
+    list-style:decimal inside none;
+    padding-bottom:5px;
+}
+
+.share ul{
+    padding:5px 0 0 1em;
+}
+
+.share ul>li{
+    list-style:disc inside none;
+    padding-bottom:5px;
+}
+
+.share a{
+    color:#6a6a6a;
+    text-decoration:none;
+    border-bottom:1px #6a6a6a dotted;
+}
+
+.share img{
+    max-width:720px;
+}

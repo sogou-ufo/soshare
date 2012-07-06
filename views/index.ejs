@@ -1,0 +1,26 @@
+<div class="two-col index">
+    <div class="l-col">
+        <ul class="article-list">
+            {{ articles.forEach(function(item){ }}
+            {{- partial('list' , {item:item,index:true}) }}
+            {{ }) }}
+        </ul>
+
+    </div>
+    <div class="r-col">
+        <div class="hottag">
+            <p class="sidebar-title">热门标签</p>
+            <ul class="hottag-list">
+                {{ tags.forEach(function(tag){ }}
+                {{ if(tag.count){ }}
+                <li>
+                    <a href="/share/tag/{{=tag.name}}">{{= tag.name }}</a> 
+                    <span> x {{=tag.articles.length}} </span>
+                </li>
+                {{ } }}
+                {{ }) }}
+            </ul>
+        </div>
+    </div>
+</div>
+

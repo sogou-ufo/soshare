@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/share/css/github.css" type="text/css" media="screen" />
+<div class="one-col">
+
+        <p class="article-title">{{=title}}</p>
+        <div class="author">
+            {{=author}} @ {{=time}}
+            &nbsp;&nbsp;
+            {{ tag.forEach(function(t){ }}
+            #<a class="tag" href="/share/tag/{{=t}}">{{=t}}</a># &nbsp;
+            {{ }) }}
+            
+            {{ if(locals.admin){ }}
+            <p class="admin">
+                <a class="edit" href="/share/post/{{-id}}/edit">[edit]</a>
+                <a id="Delete" class="delete" href="/share/post/{{-id}}/delete">[delete]</a>
+            </p>
+            {{ } }}
+        </div>
+        <article class="share">
+            {{-article}}
+        </article>
+
+</div>
+
+
+<script type="text/javascript" src="/share/js/highlight.pack.js"></script>
+<script type="text/javascript">
+
+hljs.initHighlighting();
+
+$('#Delete').on('click' , function(){
+    var url = $(this).attr('href');
+    $.ajax(url).done(function(res){
+        res = JSON.parse(res);
+        if( +res.result ){
+            $('#Notice').html('删除失败')
+                .fadeIn(function(){
+                    setTimeout(function(){
+                        $('#Notice').fadeOut();
+                    },1000);
+                } );
+        }else{
+            $('#Notice')
+                .html('删除成功')
+                .fadeIn(function(){
+                    setTimeout(function(){
+                        location.href='/share/';
+                    },1000);
+                });
+        }
+    });
+
+    return false;
+});
+    
+</script>

@@ -1,0 +1,23 @@
+<div class="one-col">
+    <p class="page-title">
+        {{ if( locals.type == 'search' ){ }}
+        搜索{{=query}}的结果
+        {{ }else{ }}
+        标签{{=tag.name}}下所有文章
+        {{ } }}
+    </p>
+
+    {{ if( locals.articles && locals.articles.length ){ }}
+    <ul class="article-list">
+        {{ articles.forEach(function(item){ }}
+        {{- partial('list' , {item:item}) }}
+        {{ }) }}
+
+    </ul>
+
+
+    {{ }else{ }}
+    <p>没有结果</p>
+    
+    {{ } }}
+</div>

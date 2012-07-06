@@ -1,0 +1,9 @@
+            <li class="article-item">
+                <p class="title"><a title="{{=item.title}}" href="/share/post/{{=item.id}}">{{=item.title}}</a></p>
+                <p class="desc">{{=item.author}} {{ if(!locals.index){ }}@ {{=item.time}}{{ } }}</p>
+                <p class="tag">
+                    {{ item.tag.forEach(function(t){ }}
+                    #<a href="/share/tag/{{=t}}">{{=t}}</a># &nbsp;
+                    {{ }) }}
+                </p>
+            </li>
