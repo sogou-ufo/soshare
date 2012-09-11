@@ -91,3 +91,17 @@
 .share img{
     max-width:720px;
 }
+
+
+.share .key-point{
+    border:1px rgb(129,138,149) dashed;
+    text-indent:0;
+    margin:10px 0;
+    padding:5px 10px;
+    background:rgb(163,174,188);
+    color:#fff;
+}
+
+.share .key-point b{
+    font-weight:700;
+}

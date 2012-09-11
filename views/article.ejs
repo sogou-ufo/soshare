@@ -2,6 +2,9 @@
 <div class="one-col">
 
         <p class="article-title">{{=title}}</p>
+        {{ if(locals.url){ }}
+        <p class="source-url"><a href="{{=locals.url}}" target="_blank">{{=locals.url}}</a></p>
+        {{ } }}
         <div class="author">
             {{=author}} @ {{=time}}
             &nbsp;&nbsp;
@@ -17,6 +20,12 @@
             {{ } }}
         </div>
         <article class="share">
+            {{ if(locals.key){ }}
+            <p class="key-point">
+                <b>推荐者说：</b><br/>
+                {{=key}}
+            </p>
+            {{ } }}
             {{-article}}
         </article>
 

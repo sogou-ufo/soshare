@@ -12,7 +12,7 @@
             <p class="sidebar-title">热门标签</p>
             <ul class="hottag-list">
                 {{ tags.forEach(function(tag){ }}
-                {{ if(tag.count){ }}
+                {{ if(tag.articles && tag.articles.length){ }}
                 <li>
                     <a href="/share/tag/{{=tag.name}}">{{= tag.name }}</a> 
                     <span> x {{=tag.articles.length}} </span>
@@ -24,3 +24,10 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    var page_conf = {
+        autoload:true,
+        step:{{=step}},
+        load_container:$('.article-list')
+    };
+</script>

@@ -5,6 +5,7 @@ exports.get = function(req,res){
     var title = req.query.title;
     var url = req.query.url;
     var tag = req.query.tag && req.query.tag.trim().split(' ') || [];
+    var key = req.query.key || '';
     var author = require('./common').fetch().uname;
     
     if( !title || !title.length || !url || !url.length ||!tag.length ){
@@ -28,7 +29,8 @@ exports.get = function(req,res){
                 tag:tag,
                 author:author,
                 article:html,
-                id:id
+                id:id,
+                key:key
             } ,function(){
                 
                 require('../models/tag').save({

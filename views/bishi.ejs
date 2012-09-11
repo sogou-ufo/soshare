@@ -8,7 +8,7 @@
         <script type="text/javascript">
             (function(){
             if( !$.browser.msie || parseInt( $.browser.version ) >= 9 ){
-            location.href="/share";
+            location.href= document.referrer ||  "/share";
             }
             })();        
         </script>

@@ -67,6 +67,7 @@ exports.find = function(begin , end , cb){
     db.open(function(err , pClient){
         db.collection('article' , function(err , collection){
             collection.find({} , {
+                skip: begin,
                 limit: end-begin,
                 sort:{id:-1}
             } ).toArray(function(err , articles){

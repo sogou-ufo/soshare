@@ -13,6 +13,8 @@ app.get('/', require('./controllers/index').get);
 app.get('/post/new', require('./controllers/post.new').get);
 app.post('/post/new', require('./controllers/post.new').post);
 
+app.get('/post/add', require('./controllers/post.add').get);
+
 app.get(/post\/(\d+)$/, require('./controllers/post.article').get);
 
 app.get(/post\/(\d+)\/edit/, require('./controllers/post.edit').get);
@@ -27,7 +29,10 @@ app.get('/search', require('./controllers/search').get);
 
 app.get('/api/add', require('./controllers/api.add').get);
 
+app.get('/api/article', require('./controllers/api.article').get);
 
+
+app.get('/about', require('./controllers/about').get);
 
 app.get('/bishi', function(req,res){
     res.render('bishi.ejs' , {layout:false});

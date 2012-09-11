@@ -6,6 +6,7 @@
         <title>{{=(locals.title ? locals.title + ' - ' : '' ) + 'soShare - 生命在于分享！'}}</title>
         <link rel="stylesheet" href="/share/css/main.css" type="text/css" media="screen" />
         <script type="text/javascript" src="http://d.123.sogou.com/jsn/lib/ufo.js"></script>
+        <script type="text/javascript" src="/share/js/ejs.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="/share/images/favicon.ico" />
     </head>
     <body>
@@ -16,9 +17,18 @@
             <div class="h-inner">
                 <div class="banner">
                     <ul class="user">
+                        {{ if( common.uname.length ){ }}
                         <li><strong>{{=common.uname}}</strong></li>
+                        {{ }else{ }}
+                        <li>
+                            <a href="http://passport.sohu-rd.com/?shire=http://ufo:80/share/shire.jp&target=http://ufo:80/share/" >login</a>
+                        </li>
+                        {{ } }}
                         <li>
                             <a href="/share/tag/help" >help</a>
+                        </li>
+                        <li>
+                            <a href="/share/about" id="About" >about</a>
                         </li>
                         <!--
                         <li>
@@ -47,26 +57,6 @@
         <div class="notice" style="display:none;" id="Notice">
             
         </div>
-        <footer>
-            <div class="foot-inner">
-                <img src="/share/images/nodejs.png" class="nodejs" alt="nodejs" />
-                <img src="/share/images/mongodb.png" class="mongodb" alt="mongodb" />
-                <ul class="guide">
-                    <li>
-                        <a href="/share/html/about.html">关于</a>
-                    </li>
-                    <li>|</li>
-                    <li>
-                        <a href="/share/html/addons.html">插件</a>
-                    </li>
-                    <li>|</li>
-                    <li>
-                        <a href="/share/html/about.html">意见反馈</a>
-                    </li>
-                </ul>
-                <p>&copy;2012 Sogou share</p>
-            </div>
-        </footer>
     </body>
     <script type="text/javascript" src="/share/js/main.js"></script>
 </html>

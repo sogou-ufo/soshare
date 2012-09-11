@@ -139,6 +139,22 @@ header .new-post-btn:active{
     padding-left:50px;
 }
 
+.source-url{
+    margin:5px 0;
+    font-size:11px;
+}
+
+.source-url a{
+    color:#666;
+    text-decoration:none;
+    word-wrap: break-word; 
+    word-break: normal; 
+}
+
+.source-url a:hover,.source-url a:active{
+    border-bottom:1px #999 solid;
+}
+
 .author{
     font-size:11px;
     color:#666;
@@ -309,49 +325,3 @@ article.share{
 }
 
 
-footer{
-    width:100%;
-    border-top:5px #000 solid;
-    background:#777;
-    color:#fff;
-    font-size:12px;
-}
-
-.foot-inner{
-    height:60px;
-    padding-left:30px;
-    position:relative;
-}
-
-footer .guide{
-    padding: 10px 0 6px;
-}
-
-footer .guide li{
-    display:inline-block;
-    padding-right:4px;
-    color:#aaa;
-}
-
-footer a{
-    color:#fff;
-    text-decoration:none;
-}
-
-footer a:hover,footer a:active{
-    text-decoration:underline;
-}
-
-footer img{
-    position:absolute;
-    width:100px;
-    top:13px;
-}
-
-footer .nodejs{
-    right:160px;
-}
-
-footer .mongodb{
-    right:40px;
-}

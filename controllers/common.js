@@ -5,7 +5,8 @@ var config = require('../config');
 exports.get = function(req,res,next){
     var cookie = req.cookies['jpassport-sp'];
     
-    username = /{username:(\w+)@sogou.*/.exec(cookie)[1];
+    username = /{username:(\w+)@sogou.*/.exec(cookie);
+    username = username && username[1] || '';
     
     next();
 };
